@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JackWeb</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <header class="header">
+    <%= link_to image_tag('jack_white.svg'), root_path, class:'logo' %>
+    <ul class="list-inline ">
+      <li class="list-inline-item"><%= link_to "jackとは", about_path %></li>
+      <li class="list-inline-item"><a href="#">作品一覧</a></li>
+      <li class="list-inline-item"><a href="#">実績一覧</a></li>
+      <li class="list-inline-item"><a href="#">ブログ</a></li>
+      <li class="list-inline-item"><a href="#">メンバー</a></li>
+      <li class="list-inline-item"><%= link_to "お問い合わせ", contact_path %></li>
+    </ul>
+  </header>
     <%= yield %>
   </body>
 </html>

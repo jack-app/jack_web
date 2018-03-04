@@ -1,1 +1,101 @@
 @import "bootstrap";
+@import "static_pages";
+
+html, body {
+  font-family: "Roboto", "Avenir Next", "游ゴシック", "メイリオ";
+  color: #474747;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  header {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    color: #ffffff;
+    padding: 30px 20px;
+    z-index: 2;
+    &:before {
+      position: fixed;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f39518;
+      transform: skewY(-1.5deg);
+      transform-origin: top left;
+      z-index: 0;
+    }
+    .logo {
+      position: absolute;
+      bottom: 0px;
+      left: 10%;
+      width: 100px;
+      transform: skewY(-1.5deg);
+      transform-origin: top left;
+      font-size: 2em;
+    }
+    ul {
+      width: 100%;
+      text-align: right;
+      li {
+        display:inline;
+        a {
+          position: relative;
+          color: #ffffff;
+          transition: .5s;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background-color: #474747;
+            -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+            transition: .5s;
+          }
+          &:hover:after {
+            width: 100%;
+            transition: .3s;
+          }
+          &:hover {
+            color: #474747;
+            text-decoration: none;
+            transition: .3s;
+          }
+        }
+      }
+    }
+  }
+  .header-back {
+    position: relative;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 640px){
+  header {
+    height: 100px;
+    &:before {
+      height: 100px;
+    }
+  }
+  .header-back {
+    height: 100px;
+  }
+}
+@media screen and (max-width: 640px){
+  header {
+    height: 150px;
+    &:before {
+      height: 150px;
+    }
+    ul {
+      width: 100%;
+    }
+  }
+  .header-back {
+    height: 150px;
+  }
+}

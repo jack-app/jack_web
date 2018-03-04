@@ -1,2 +1,30 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<% provide(:page_title, "") %>
+<div class="motto-screen">
+  <div class="header-back"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="motto">やりたいことを<br/>やれるようになって、<br/>やる。</h1>
+      </div>
+      <div class="col-lg-6">
+        <p>
+          jackは名古屋大学を中心とした、アプリを製作する団体です。<br/>
+          主にAndroidアプリ、iPhoneアプリ、webサービス、PCソフトなどを開発しています。<br/>
+        </p>
+        <p>
+          やりたいことを「やりたい」だけでとどめず、<br/>
+          ITを通じて実現することで、メンバーの成長の機会を提供しています。
+        </p>
+        <p>
+          ワクワクするようなアプリやサービスを生み出したい、素敵なデザインを描いてみたい、あっと驚くような企画を立てたい。
+        </p>
+        <p>
+          jackはいつだって、あなたを歓迎します。
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 offset-sm-4"><%= link_to "新歓のお知らせ", root_path, class:'button' %></div>
+    </div>
+  </div>
+</div>
