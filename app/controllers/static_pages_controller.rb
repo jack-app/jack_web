@@ -7,4 +7,10 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def welcome
+  end
+
+  def meidaisai
+  end
 end

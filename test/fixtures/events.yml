@@ -1,0 +1,39 @@
+shinkan1:
+  name: 新歓
+  genre: 新歓
+  describe:
+  place: 名古屋大学中央図書館3Fラーニングポッド
+  start_at: 2018-04-05 14:30:00
+  end_at: 2018-04-05 16:00:00
+
+shinkan2:
+  name: 新歓
+  genre: 新歓
+  describe:
+  place: 名古屋大学中央図書館3Fラーニングポッド
+  start_at: 2018-04-10 13:30:00
+  end_at: 2018-04-10 15:00:00
+
+shinkan3:
+  name: 新歓
+  genre: 新歓
+  describe:
+  place: 名古屋大学中央図書館3Fラーニングポッド
+  start_at: 2018-04-14 14:00:00
+  end_at: 2018-04-14 15:30:00
+
+shinkan4:
+  name: 新歓
+  genre: 新歓
+  describe:
+  place: 名古屋大学中央図書館3Fラーニングポッド
+  start_at: 2018-04-16 16:30:00
+  end_at: 2018-04-16 18:00:00
+
+shinkan5:
+  name: 新歓
+  genre: 新歓
+  describe: この日の時点で新加入メンバー確定し、活動後にご飯会を開催します。
+  place: 名古屋大学中央図書館3Fラーニングポッド
+  start_at: 2018-04-19 14:30:00
+  end_at: 2018-04-19 18:00:00
