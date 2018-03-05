@@ -12,7 +12,6 @@
   position: relative;
   color: #f39518;
   transition: .5s;
-  font-size: 1.5em;
   border-radius: 1px;
   &:hover {
     color: #ffffff;
@@ -26,7 +25,7 @@
     font-size: 3em;
   }
   .padding {
-     height: 150px;
+     height: 100px;
    }
 }
 @media screen and (max-width: 640px){
