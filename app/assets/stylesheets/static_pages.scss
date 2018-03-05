@@ -20,19 +20,3 @@
     transition: .3s;
   }
 }
-@media screen and (min-width: 640px){
-  h1 {
-    font-size: 3em;
-  }
-  .padding {
-     height: 100px;
-   }
-}
-@media screen and (max-width: 640px){
-  h1 {
-    font-size: 2em;
-  }
-  .padding {
-    height: 50px;
-  }
-}

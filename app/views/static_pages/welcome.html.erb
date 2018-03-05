@@ -1,6 +1,38 @@
-<% provide(:page_title, "新歓のお知らせ") %>
+<% provide(:page_title, "新歓 メンバー募集") %>
 <div class="container">
-    <h1>
-      新歓のお知らせ
-    </h1>
+  <div class="padding"></div>
+  <h2 class="english-shadow" title="member wanted">新歓&メンバー募集</h2>
+  <p>
+    jackは今年も新歓イベントを行います!
+  </p>
+  <p>
+    アプリ・ウェブサービス製作に興味のある方、デザインをやってみたい方、イラストを製作してみたい方、何か企画を立ててみたい方、学年・学部は問いません。プログラミングって、なんだか難しそう。心配ありません、jackメンバーのほとんどが初心者でした。大切なのは、やってみたい気持ちです。ぜひご参加ください!
+  </p>
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="date&time">新歓日程</h3>
+  <p>※ 15分前集合でお願いします</p>
+  <table class="table table-striped">
+    <tr>
+      <th>日付</th>
+      <th>時間</th>
+    </tr>
+    <% Event.where(genre: "新歓").order(:start_at).each do |event| %>
+        <tr>
+          <td><%= event.start_at.strftime('%-m月%-d日(%a)') %></td>
+          <td><%= "#{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
+        </tr>
+    <% end %>
+  </table>
+  <p>新歓最終日に新加入メンバー確定とし、その日の活動後メンバーとの食事会を開催します。</p>
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="place">集合場所</h3>
+    <p>地下鉄名城線 名古屋大学駅1番出口</p>
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="remarks">注意事項</h3>
+  <ul>
+    <li>当日参加OKですが、出来れば事前に<a href="mailto:jack.nagoya&#64;gmail.com"><span>メール</span></a>・<a href="https://twitter.com/jack_nagoya_"><span>Twitter</span></a>・<a href="http://line.me/ti/p/%40jnm6180c"><span>Line@</span></a>のいずれかで、お名前、学部学科、参加日をご連絡ください。
+    <li>ご自分のパソコンをお持ちの方は、是非お持ちください。Windows・Mac・Linuxいずれでも構いません。
+    <li>当日は活動開始時刻の15分前に「jack」のプラカードを持った人が集合場所にいますので、お声かけください。
+  </ul>
+  <div class="hr-padding"></div>
 </div>
