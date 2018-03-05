@@ -1,12 +1,22 @@
 @import "bootstrap";
 @import "static_pages";
 
-html, body {
+body {
   font-family: "Roboto", "Avenir Next", "游ゴシック", "メイリオ";
   color: #474747;
   margin: 0;
   padding: 0;
   height: 100%;
+  &:after{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#eeeeee, #ffffff);
+    z-index: -1;
+  }
   header {
     position: fixed;
     top:0;

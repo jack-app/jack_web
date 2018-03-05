@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    <title><%= full_title(yield(:page_title)) %></title>
     <%= csrf_meta_tags %>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,6 +23,7 @@
       <li class="list-inline-item"><%= link_to "お問い合わせ", contact_path %></li>
     </ul>
   </header>
-    <%= yield %>
+  <div class="header-back"></div>
+  <%= yield %>
   </body>
 </html>
