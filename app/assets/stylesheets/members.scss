@@ -1,0 +1,31 @@
+.member-item {
+  margin: 0px 0px 10px;
+  text-align: center;
+  img {
+    margin: 10px 0;
+  }
+  span {
+    color:#474747;
+  }
+}
+.profile {
+  .theme {
+    background: #f39518;
+    color: #ffffff;
+    height: 100%;
+    position: relative;
+    span{
+      position: absolute;
+      top: 50%;
+      left: 3em;
+      -webkit-transform: translate(0%, -50%);
+      transform: translate(0%, -50%);
+    }
+  }
+  .skills {
+    list-style:none;
+  }
+  .content {
+    padding: 1em;
+  }
+}

@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import "static_pages";
+@import "members";
+@import "products";
 
 body {
   font-feature-settings : "palt";
@@ -84,7 +86,37 @@ body {
     position: relative;
     width: 100%;
   }
-  hr {
+  .page-header {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(#111111, #222222);
+    transform: skewY(-1.5deg);
+    transform-origin: top left;
+    .icon {
+      position :absolute;
+      bottom: 40px;
+      left: 50%;
+      opacity: 0.4;
+      -webkit-transform: translate(-50%, 0%);
+      transform: translate(-50%, 0%);
+      -webkit-box-reflect: below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(rgba(0,0,0,0.8)));
+
+    }
+    &:after {
+      color: #f39518;
+      content: attr(title);
+      position :absolute;
+      bottom: 40px;
+      left: 50%;
+      font-size: 1.5em;
+      z-index: 1;
+      -webkit-transform: translate(-50%, 0%);
+      transform: translate(-50%, 0%);
+      -webkit-box-reflect: below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(rgba(0,0,0,0.8)));
+
+    }
+  }
+  hr, .hr {
     height: 1px;
     border: none;
     background-color: #f39518;
@@ -110,15 +142,14 @@ body {
     }
   }
   a {
-    transition: 0.5s;
     span {
       color: #f39518;
       display: inline-block;
-      transition: .5s;
     }
     &:hover span {
       -webkit-transform: rotateX(360deg);
       transform: rotateX(360deg);
+      transition: 0.5s;
     }
   }
 }
@@ -131,6 +162,9 @@ body {
   }
   .header-back {
     height: 100px;
+  }
+  .page-header {
+    height: 250px;
   }
   h1 {
     font-size: 3em;
@@ -165,6 +199,10 @@ body {
   .header-back {
     height: 150px;
   }
+  .page-header {
+    height: 300px;
+  }
+
   h1 {
     font-size: 2em;
   }
@@ -173,6 +211,6 @@ body {
   }
   .hr-padding {
     height: 50px;
-    background-image: image-url("hr.png");
+    background-size: 150px;
   }
 }

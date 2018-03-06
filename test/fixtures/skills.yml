@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+skill01:
+  name: HTML
+  start_at: 2005-01-01
+  member_id: 1019773093
+
+skill02:
+  name: CSS
+  start_at: 2005-01-01
+  member_id: 1019773093
+
+skill03:
+  name: JavaScript
+  start_at: 2005-08-01
+  member_id: 1019773093
+
+skill04:
+  name: Smile Basic
+  start_at: 2017-09-01
+  member_id: 1019773093
+
+skill05:
+  name: Java
+  start_at: 2017-04-01
+  member_id: 1019773093
+
+skill06:
+  name: Python
+  start_at: 2017-04-01
+  member_id: 1019773093
+
+skill07:
+  name: Ruby on Rails
+  start_at: 2017-08-01
+  member_id: 1019773093
+
+skill08:
+  name: Ruby
+  start_at: 2017-08-01
+  member_id: 1019773093
+
+skill09:
+  name: C
+  start_at: 2017-09-01
+  member_id: 1019773093

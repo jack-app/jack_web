@@ -14,16 +14,15 @@
   <body>
   <header class="header">
     <%= link_to image_tag('jack_white.svg'), root_path, class:'logo' %>
-    <ul class="list-inline ">
+    <ul class="list-inline">
       <li class="list-inline-item"><%= link_to "jackとは", about_path %></li>
-      <li class="list-inline-item"><a href="#">作品一覧</a></li>
-      <li class="list-inline-item"><a href="#">実績一覧</a></li>
+      <li class="list-inline-item"><%= link_to "作品", products_path %><</li>
+      <li class="list-inline-item"><a href="#">実績</a></li>
       <li class="list-inline-item"><a href="#">ブログ</a></li>
-      <li class="list-inline-item"><a href="#">メンバー</a></li>
+      <li class="list-inline-item"><%= link_to "メンバー", members_path %></li>
       <li class="list-inline-item"><%= link_to "お問い合わせ", contact_path %></li>
     </ul>
   </header>
-  <div class="header-back"></div>
   <%= yield %>
   <div class="container">
     <hr>

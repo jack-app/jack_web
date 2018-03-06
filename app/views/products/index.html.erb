@@ -1,0 +1,66 @@
+<% provide(:page_title, "作品") %>
+<div class="page-header" title="products"></div>
+<div class="container">
+  <% @products.each do |product| %>
+      <div class="padding"></div>
+      <div class="product">
+        <div class="row">
+          <div class="col-4">
+            <%= image_tag "break_gear/logo.png", class: "logo" %>
+            <div class="big-page">
+              <a href="" class="button">Google Play(android版)</a>
+              <a href="" class="button">App Store(iPhone・iPad版)</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <h2 class="title english-shadow"><%= product.name %></h2>
+            <div class="genre">
+              <table class="table table-sm">
+                <tr>
+                  <td>ジャンル:</td>
+                  <td>カード</td>
+                </tr>
+                <tr>
+                  <td>価格:</td>
+                  <td>0円</td>
+                </tr>
+                <tr>
+                  <td>対応OS:</td>
+                  <td>android, iOS</td>
+                </tr>
+              </table>
+            </div>
+            <h5 class="slogan big-page">推理力と記憶力が勝敗を決める戦略的カードゲーム！！<br/>壮絶な心理戦を制せ！</h5>
+            <p class="describe big-page">
+              ルールは簡単！相手のカードをすべて表にするだけ！！<br/>
+              相手の場にある4枚のカードをすべて表にすると勝利です。相手のカードを表にするには、自分と相手のカードの大小関係という情報のみから、相手のカードに書かれている数字を当てる必要があります。
+            </p>
+          </div>
+        </div>
+        <h5 class="slogan small-page">推理力と記憶力が勝敗を決める戦略的カードゲーム！！<br/>壮絶な心理戦を制せ！</h5>
+        <p class="small-page">
+          ルールは簡単！相手のカードをすべて表にするだけ！！<br/>
+          相手の場にある4枚のカードをすべて表にすると勝利です。相手のカードを表にするには、自分と相手のカードの大小関係という情報のみから、相手のカードに書かれている数字を当てる必要があります。
+        </p>
+        <div class="row small-page">
+          <div class="col-sm-6"><a href="" class="button">Google Play(android版)</a></div>
+          <div class="col-sm-6"><a href="" class="button">App Store(iPhone・iPad版)</a></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <div class="movie-wrapper"><iframe class="movie" src="https://www.youtube.com/embed/VmNxGXyjVOo" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+          </div>
+          <div class="col-sm-2 col-4">
+            <%= image_tag "break_gear/screen-shot1.jpg", class: "screen-shot" %>
+          </div>
+          <div class="col-sm-2 col-4">
+            <%= image_tag "break_gear/screen-shot2.jpg", class: "screen-shot" %>
+          </div>
+          <div class="col-sm-2 col-4">
+            <%= image_tag "break_gear/screen-shot3.jpg", class: "screen-shot" %>
+          </div>
+        </div>
+      </div>
+      <div class="hr-padding"></div>
+  <% end %>
+</div>

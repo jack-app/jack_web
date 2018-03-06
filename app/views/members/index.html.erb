@@ -1,0 +1,26 @@
+<% provide(:page_title, "メンバー") %>
+<div class="page-header" title="members"></div>
+<div class="container">
+  <div class="padding"></div>
+  <h2 class="english-shadow" title="Leader">代表</h2>
+  <div class="row">
+    <% @leaders.each do |leader| %>
+        <div class="col-md-2 col-sm-3 col-6">
+          <div class="member-item">
+            <%= link_to "#{gravatar_for leader}<br/><span>#{leader.name}</span>".html_safe, member_path(leader) %>
+            </a>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <h2 class="english-shadow" title="Members">メンバー</h2>
+  <div class="row">
+    <% @members.each do |member| %>
+        <div class="col-md-2 col-sm-3 col-6">
+          <div class="member-item">
+            <%= link_to "#{gravatar_for member}<br/><span>#{member.name}</span>".html_safe, member_path(member) %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

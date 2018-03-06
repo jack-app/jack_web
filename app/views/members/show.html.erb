@@ -1,0 +1,52 @@
+<% provide(:page_title, "#{@member.name} | メンバー") %>
+<div class="page-header" title="<%= @member.name %>">
+  <%= gravatar_for @member, size: 100, class:'icon' %>
+</div>
+<div class="container profile">
+  <div class="hr-padding"></div>
+  <div class="hr"></div>
+  <div class="row">
+    <div class="col-sm-4"><div class="theme"><br/><span>所属</span></div></div>
+    <div class="col-sm-8"><div class="content"><%= @member.university %><%= @member.grade %></div></div>
+  </div>
+  <div class="hr"></div>
+  <div class="row">
+    <div class="col-sm-4"><div class="theme"><br/><span>作品</span></div></div>
+    <div class="col-sm-8">
+      <div class="content">
+        <% @member.member_products.each do |member_product| %>
+            <%= member_product.product.name %><br/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div class="row">
+    <div class="col-sm-4"><div class="theme"><br/><span>スキル</span></div></div>
+    <div class="col-sm-8">
+      <div class="content">
+        <% @member.skills.order(:start_at).each do |skill| %>
+            <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span><br/>
+        <% end %>
+    </div>
+    </div>
+  </div>
+  <div class="hr"></div>
+  <div class="row">
+    <div class="col-sm-4"><div class="theme"><br/><span>プロフィール</span></div></div>
+    <div class="col-sm-8"><div class="content"><%= @member.profile %></div></div>
+  </div>
+  <div class="hr"></div>
+  <div class="row">
+    <div class="col-sm-4"><div class="theme"><br/><span>連絡先</span></div></div>
+    <div class="col-sm-8"><div class="content">
+      email: <a href="mailto:<%= @member.email %>"><span><%= @member.email %></span></a><br/>
+      <% @member.sns_links.each do |sns_link| %>
+          <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a><br/>
+      <% end %>
+    </div></div>
+  </div>
+  <div class="hr"></div>
+
+  <div class="hr-padding"></div>
+</div>
