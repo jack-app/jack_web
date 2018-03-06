@@ -6,8 +6,14 @@
     jackは今年も新歓イベントを行います!
   </p>
   <p>
-    アプリ・ウェブサービス製作に興味のある方、デザインをやってみたい方、イラストを製作してみたい方、何か企画を立ててみたい方、学年・学部は問いません。プログラミングって、なんだか難しそう。心配ありません、jackメンバーのほとんどが初心者でした。大切なのは、やってみたい気持ちです。ぜひご参加ください!
+    アプリ・ウェブサービス製作に興味のある方、デザインをやってみたい方、イラストを製作してみたい方、何か企画を立ててみたい方、学年・学部は問いません。<br/>
+    プログラミングって、なんだか難しそう。心配ありません、jackメンバーのほとんどが初心者でした。<br/>
+    大切なのは、やってみたい気持ちです。ぜひご参加ください!
   </p>
+  <div class="row">
+    <div class="col-md-4 offset-md-2"><%= link_to "jackとは", about_path, class:'button' %></div>
+    <div class="col-md-4"><%= link_to "新歓登録フォームはこちら", contact_path, class:'button' %></div>
+  </div>
   <div class="padding"></div>
   <h3 class="english-shadow" title="date&time">新歓日程</h3>
   <p>※ 15分前集合でお願いします</p>
@@ -23,15 +29,54 @@
         </tr>
     <% end %>
   </table>
-  <p>新歓最終日に新加入メンバー確定とし、その日の活動後メンバーとの食事会を開催します。</p>
+  <p>4月19日(Thu)時点で、新加入メンバーを確定させていただきます。また、新歓に参加される方は、以下の新歓食事会もぜひご一考ください。</p>
+
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="welcome party">新歓食事会</h3>
+  <p>
+    新加入メンバーを含めたメンバーのみんなで食事会をしたいと考えています。jack新歓に来ていただける方は、是非ご参加ください。<br/>
+    先輩メンバーとの顔合わせも兼ねて、仲良くなれるイベントです。
+  </p>
+  <p>
+    ※ 食事会の参加は、jackに加入される方のみを対象とさせていただきます。ご了承ください。
+  </p>
+  <table class="table table-striped">
+    <tr>
+      <th>日付</th>
+      <th>時間</th>
+    </tr>
+    <% Event.where(genre: "新歓食事会").order(:start_at).each do |event| %>
+        <tr>
+          <td><%= event.start_at.strftime('%-m月%-d日(%a)') %></td>
+          <td><%= "#{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
+        </tr>
+    <% end %>
+  </table>
   <div class="padding"></div>
   <h3 class="english-shadow" title="place">集合場所</h3>
-    <p>地下鉄名城線 名古屋大学駅1番出口</p>
+    <p>
+      地下鉄名城線 名古屋大学駅1番出口
+    </p>
   <div class="padding"></div>
+  <h3 class="english-shadow" title="items">持ち物</h3>
+  <h5>名古屋大学学生証</h5>
+  <p>
+    中央図書館で新歓イベントを行いますので、入館の際に提示が必要です。無くても書類に記入していただければ問題ありません。
+  </p>
+  <p>
+    パソコンはどちらでも構いません。Windows・Mac・Linuxいずれのパソコンでもjackで活動いただけます。
+  </p>
+    <div class="padding"></div>
+  <h3 class="english-shadow" title="contents">内容</h3>
+  <h5>★いい感じにjack新歓のインパクトを出す文章★</h5>
+  <p>
+    ★未定★ここでいい感じにjack新歓に参加したくなるような文章★未定★
+  </p>
+  <div class="padding"></div>
+
   <h3 class="english-shadow" title="remarks">注意事項</h3>
   <ul>
-    <li>当日参加OKですが、出来れば事前に<a href="mailto:jack.nagoya&#64;gmail.com"><span>メール</span></a>・<a href="https://twitter.com/jack_nagoya_"><span>Twitter</span></a>・<a href="http://line.me/ti/p/%40jnm6180c"><span>Line@</span></a>のいずれかで、お名前、学部学科、参加日をご連絡ください。
-    <li>ご自分のパソコンをお持ちの方は、是非お持ちください。Windows・Mac・Linuxいずれでも構いません。
+    <li>当日参加OKですが、出来れば事前に<%= link_to "<span>登録フォーム</span>".html_safe, contact_path %>・<a href="mailto:jack.nagoya&#64;gmail.com"><span>メール</span></a>・<a href="https://twitter.com/jackapp_tmy"><span>Twitter</span></a>・<a href="http://line.me/ti/p/%40jnm6180c"><span>Line@</span></a>のいずれかで、お名前、学部学科、参加日をご連絡ください。
     <li>当日は活動開始時刻の15分前に「jack」のプラカードを持った人が集合場所にいますので、お声かけください。
   </ul>
   <div class="hr-padding"></div>
