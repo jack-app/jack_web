@@ -11,7 +11,6 @@ class ProductLinksController < ApplicationController
 
   def create
     @product_link = ProductLink.new(product_link_params)
-    @product_link.product_id = 5
     if @product_link.save
       redirect_to products_path
     else
@@ -38,6 +37,6 @@ class ProductLinksController < ApplicationController
     end
 
     def product_link_params
-      params.require(:product_link).permit(:name, :url)
+      params.require(:product_link).permit(:name, :url, :product_id)
     end
 end
