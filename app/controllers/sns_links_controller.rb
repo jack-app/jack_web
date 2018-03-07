@@ -31,7 +31,7 @@ class SnsLinksController < ApplicationController
 
   private
   def set_sns_link
-    @sns_link = Skill.find_by(id: params[:id])
+    @sns_link = SnsLink.find_by(id: params[:id])
   end
   def sns_link_param
     params.require(:sns_link).permit(:name, :url)
