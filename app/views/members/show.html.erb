@@ -1,31 +1,26 @@
 <% provide(:page_title, "#{@member.name} | メンバー") %>
-<div class="page-header" title="<%= @member.name %>">
+<div class="page-header" title="<%= @member.name %>" style="color: #ffffff">
   <%= gravatar_for @member, size: 100, class:'icon' %>
 </div>
 <div class="container profile">
-  <div class="hr-padding"></div>
-  <div class="hr"></div>
-  <div class="row">
-    <div class="col-sm-4"><div class="theme"><br/><span>所属</span></div></div>
-    <div class="col-sm-8"><div class="content"><%= @member.university %><%= @member.grade %></div></div>
-  </div>
-  <div class="hr"></div>
-  <div class="row">
-    <div class="col-sm-4"><div class="theme"><br/><span>作品</span></div></div>
-    <div class="col-sm-8">
-      <div class="content">
+  <div class="padding"></div>
+  <table class="table table-bordered">
+    <tr>
+      <th>所属</th>
+      <td><%= @member.university %><%= @member.grade %></td>
+    </tr>
+    <tr>
+      <th>作品</th>
+      <td>
         <% @member.member_products.each do |member_product| %>
             <%= member_product.product.name %><br/>
         <% end %>
         <%= link_to "<span>作品を追加する</span>".html_safe, new_product_path if member_auth?(params[:id]) %>
-      </div>
-    </div>
-  </div>
-  <div class="hr"></div>
-  <div class="row">
-    <div class="col-sm-4"><div class="theme"><br/><span>スキル</span></div></div>
-    <div class="col-sm-8">
-      <div class="content">
+      </td>
+    </tr>
+    <tr>
+      <th>スキル</th>
+      <td>
         <% @member.skills.order(:start_at).each do |skill| %>
             <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span>
             <%= link_to "<span>編集</span>".html_safe, edit_skill_path(skill) if member_auth?(params[:id]) %>
@@ -33,28 +28,25 @@
             <br/>
         <% end %>
         <%= link_to "<span>スキルを追加する</span>".html_safe, new_skill_path if member_auth?(params[:id]) %>
-    </div>
-    </div>
-  </div>
-  <div class="hr"></div>
-  <div class="row">
-    <div class="col-sm-4"><div class="theme"><br/><span>プロフィール</span></div></div>
-    <div class="col-sm-8"><div class="content"><%= @member.profile %></div></div>
-  </div>
-  <div class="hr"></div>
-  <div class="row">
-    <div class="col-sm-4"><div class="theme"><br/><span>連絡先</span></div></div>
-    <div class="col-sm-8"><div class="content">
-      email: <a href="mailto:<%= @member.email %>"><span><%= @member.email %></span></a><br/>
-      <% @member.sns_links.each do |sns_link| %>
-          <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a>
-          <%= link_to "<span>編集</span>".html_safe, edit_sns_link_path(sns_link) if member_auth?(params[:id]) %>
-          <%= link_to "<span>削除</span>".html_safe, sns_link_path(sns_link), method: :delete if member_auth?(params[:id]) %><br/>
-      <% end %>
-      <%= link_to "<span>SNSを追加する</span>".html_safe, new_sns_link_path if member_auth?(params[:id]) %>
-    </div></div>
-  </div>
-  <div class="hr"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>プロフィール</th>
+      <td><%= @member.profile %></td>
+    </tr>
+    <tr>
+      <th>連絡先</th>
+      <td>
+        email: <a href="mailto:<%= @member.email %>"><span><%= @member.email %></span></a><br/>
+        <% @member.sns_links.each do |sns_link| %>
+            <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a>
+            <%= link_to "<span>編集</span>".html_safe, edit_sns_link_path(sns_link) if member_auth?(params[:id]) %>
+            <%= link_to "<span>削除</span>".html_safe, sns_link_path(sns_link), method: :delete if member_auth?(params[:id]) %><br/>
+        <% end %>
+        <%= link_to "<span>SNSを追加する</span>".html_safe, new_sns_link_path if member_auth?(params[:id]) %>
+      </td>
+    </tr>
+  </table>
   <% if member_auth?(params[:id]) %>
       <div class="padding"></div>
       <div class="row">

@@ -92,6 +92,7 @@ body {
     background: linear-gradient(#111111, #222222);
     transform: skewY(-1.5deg);
     transform-origin: top left;
+    color: #f39518;
     .icon {
       position :absolute;
       bottom: 40px;
@@ -103,7 +104,6 @@ body {
 
     }
     &:after {
-      color: #f39518;
       content: attr(title);
       position :absolute;
       bottom: 40px;
@@ -153,7 +153,7 @@ body {
     }
   }
 }
-@media screen and (min-width: 640px){
+@media screen and (min-width: 769px){
   header {
     height: 100px;
     &:before {
@@ -186,7 +186,8 @@ body {
     width: 100%;
   }
 }
-@media screen and (max-width: 640px){
+
+@media screen and (max-width: 769px){
   header {
     height: 150px;
     &:before {
@@ -212,5 +213,24 @@ body {
   .hr-padding {
     height: 50px;
     background-size: 150px;
+  }
+}
+
+@media only screen and (max-width:480px){
+  table {
+    th, td {
+      width: 100%;
+      display: block;
+      border-top: none;
+    }
+  }
+}
+th {
+  background: #eeeeee;
+}
+ul{
+  padding-left: 0;
+  li {
+    list-style:none;
   }
 }
