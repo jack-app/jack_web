@@ -1,0 +1,50 @@
+<%= form_with(model: product_link, local: true) do |form| %>
+  <% if product_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product_link.errors.count, "error") %> prohibited this product_link from being saved:</h2>
+
+      <ul>
+      <% product_link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <label>名前</label>
+    <p>わかりやすいテンプレ</p>
+    <table class="table">
+      <tr>
+        <td>GooglePlay</td>
+        <td>GooglePlay(android版)</td>
+      </tr>
+      <tr>
+        <td>iOS</td>
+        <td>AppStore(iPhone・iPad版)</td>
+      </tr>
+      <tr>
+        <td>サイト</td>
+        <td>公式サイト</td>
+      </tr>
+      <tr>
+        <td>webアプリ</td>
+        <td>webアプリ版</td>
+      </tr>
+    </table>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <label>作品ID</label>
+    <%= form.number_field :product_id, class: 'form-control', disabled: 'disabled' %>
+  </div>
+  <div class="form-group">
+    <label>url</label>
+    <%= form.text_field :url, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

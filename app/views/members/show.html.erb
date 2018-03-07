@@ -17,6 +17,7 @@
         <% @member.member_products.each do |member_product| %>
             <%= member_product.product.name %><br/>
         <% end %>
+        <%= link_to "<span>作品を追加する</span>".html_safe, new_product_path if member_auth?(params[:id]) %>
       </div>
     </div>
   </div>
@@ -57,7 +58,7 @@
   <% if member_auth?(params[:id]) %>
       <div class="padding"></div>
       <div class="row">
-        <div class="col-4"><%= link_to "プロフィールを編集する", edit_member_path(params[:id]), class:'button' %></div>
+        <div class="col-md-4"><%= link_to "プロフィールを編集する", edit_member_path(params[:id]), class:'button' %></div>
       </div>
   <% end %>
   <div class="hr-padding"></div>

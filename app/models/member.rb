@@ -1,9 +1,9 @@
 class Member < ApplicationRecord
   before_save { email.downcase! }
 
-  has_many :skills
-  has_many :sns_links
-  has_many :member_products
+  has_many :skills, dependent: :destroy
+  has_many :sns_links, dependent: :destroy
+  has_many :member_products, dependent: :destroy
   has_many :products, through: :member_products
   has_secure_password
   validates :name, presence: true

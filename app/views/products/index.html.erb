@@ -8,8 +8,12 @@
           <div class="col-4">
             <%= image_tag "break_gear/logo.png", class: "logo" %>
             <div class="big-page">
-              <a href="" class="button">Google Play(android版)</a>
-              <a href="" class="button">App Store(iPhone・iPad版)</a>
+              <% product.product_links.each do |link| %>
+                  <a href="<%= link.url %>" class="button"><%= link.name %></a>
+                  <%= link_to "<span>#{link.name}編集</span>".html_safe, edit_product_link_path(link) if login? %>
+                  <%= link_to "<span>#{link.name}削除</span>".html_safe, product_link_path(link), method: :delete if login? %>
+              <% end %>
+              <%= link_to "リンク追加", new_product_link_path(product_id: product.id), class:'button' if login? %>
             </div>
           </div>
           <div class="col-8">
@@ -18,11 +22,11 @@
               <table class="table table-sm">
                 <tr>
                   <td>ジャンル:</td>
-                  <td>カード</td>
+                  <td><%= product.genre %></td>
                 </tr>
                 <tr>
                   <td>価格:</td>
-                  <td>0円</td>
+                  <td><%= product.price %>円</td>
                 </tr>
                 <tr>
                   <td>対応OS:</td>
@@ -30,21 +34,25 @@
                 </tr>
               </table>
             </div>
-            <h5 class="slogan big-page">推理力と記憶力が勝敗を決める戦略的カードゲーム！！<br/>壮絶な心理戦を制せ！</h5>
-            <p class="describe big-page">
-              ルールは簡単！相手のカードをすべて表にするだけ！！<br/>
-              相手の場にある4枚のカードをすべて表にすると勝利です。相手のカードを表にするには、自分と相手のカードの大小関係という情報のみから、相手のカードに書かれている数字を当てる必要があります。
-            </p>
+            <h5 class="slogan big-page"><%= product.slogan %></h5>
+            <p class="describe big-page"><%= product.describe %></p>
           </div>
         </div>
-        <h5 class="slogan small-page">推理力と記憶力が勝敗を決める戦略的カードゲーム！！<br/>壮絶な心理戦を制せ！</h5>
+        <h5 class="slogan small-page"><%= product.slogan %></h5>
         <p class="small-page">
-          ルールは簡単！相手のカードをすべて表にするだけ！！<br/>
-          相手の場にある4枚のカードをすべて表にすると勝利です。相手のカードを表にするには、自分と相手のカードの大小関係という情報のみから、相手のカードに書かれている数字を当てる必要があります。
+          <%= product.describe %>
         </p>
         <div class="row small-page">
-          <div class="col-sm-6"><a href="" class="button">Google Play(android版)</a></div>
-          <div class="col-sm-6"><a href="" class="button">App Store(iPhone・iPad版)</a></div>
+          <% product.product_links.each do |link| %>
+              <div class="col-sm-6">
+                <a href="<%= link.url %>" class="button"><%= link.name %></a><br/>
+                <%= link_to "<span>#{link.name}編集</span>".html_safe, edit_product_link_path(link) if login? %>
+                <%= link_to "<span>#{link.name}削除</span>".html_safe, product_link_path(link), method: :delete if login? %>
+              </div>
+          <% end %>
+          <% if login? %>
+              <div class="col-sm-6"><%= link_to "リンク追加", new_product_link_path, class:'button' %></div>
+          <% end %>
         </div>
         <div class="row">
           <div class="col-sm-6 col-12">
@@ -61,6 +69,12 @@
           </div>
         </div>
       </div>
+      <% if login? %>
+          <div class="row">
+            <div class="col-sm-6"><%= link_to "#{product.name}を編集する", edit_product_path(product.id), class:'button' %></div>
+            <div class="col-sm-6"><%= link_to "共同制作者を追加", "#", class:'button' %></div>
+          </div>
+      <% end %>
       <div class="hr-padding"></div>
   <% end %>
 </div>

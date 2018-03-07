@@ -1,5 +1,4 @@
 class MembersController < ApplicationController
-  include MembersHelper
   before_action :require_auth, only: [:edit, :update, :destroy]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   def new
