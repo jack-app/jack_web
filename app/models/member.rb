@@ -1,9 +1,15 @@
 class Member < ApplicationRecord
+  before_save { email.downcase! }
+
   has_many :skills
   has_many :sns_links
   has_many :member_products
   has_many :products, through: :member_products
   has_secure_password
+  validates :name, presence: true
+  validates :email, presence: true, length: { maximum: 255 },
+            format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :university, presence: true
   validates :password, presence: true, allow_nil: true
 
   def grade

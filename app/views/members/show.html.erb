@@ -26,8 +26,9 @@
     <div class="col-sm-8">
       <div class="content">
         <% @member.skills.order(:start_at).each do |skill| %>
-            <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span><br/>
+            <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span><%= link_to "<span>編集</span>".html_safe, edit_skill_path(skill) if member_auth?(params[:id]) %><%= link_to "<span>削除</span>".html_safe, skill_path(skill), method: :delete if member_auth?(params[:id]) %><br/>
         <% end %>
+        <%= link_to "<span>スキルを追加する</span>".html_safe, new_skill_path if member_auth?(params[:id]) %>
     </div>
     </div>
   </div>
@@ -44,9 +45,15 @@
       <% @member.sns_links.each do |sns_link| %>
           <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a><br/>
       <% end %>
+      <%= link_to "<span>SNSを追加する</span>".html_safe, new_sns_link_path if member_auth?(params[:id]) %>
     </div></div>
   </div>
   <div class="hr"></div>
-
+  <% if member_auth?(params[:id]) %>
+      <div class="padding"></div>
+      <div class="row">
+        <div class="col-4"><%= link_to "プロフィールを編集する", edit_member_path(params[:id]), class:'button' %></div>
+      </div>
+  <% end %>
   <div class="hr-padding"></div>
 </div>

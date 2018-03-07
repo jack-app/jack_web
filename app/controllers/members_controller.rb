@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   include MembersHelper
+  before_action :require_auth, only: [:edit, :update, :destroy]
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   def new
     @member = Member.new
@@ -35,5 +36,10 @@ class MembersController < ApplicationController
     end
   def member_param
     params.require(:member).permit(:name, :email, :university, :password, :password_confirmation, :enroll, :profile)
+  end
+  def require_auth
+    until (login? && current_member.id.to_i == params[:id].to_i)
+      redirect_to member_path(params[:id]) and return
+    end
   end
 end
