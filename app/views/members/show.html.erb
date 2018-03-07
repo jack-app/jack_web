@@ -26,7 +26,10 @@
     <div class="col-sm-8">
       <div class="content">
         <% @member.skills.order(:start_at).each do |skill| %>
-            <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span><%= link_to "<span>編集</span>".html_safe, edit_skill_path(skill) if member_auth?(params[:id]) %><%= link_to "<span>削除</span>".html_safe, skill_path(skill), method: :delete if member_auth?(params[:id]) %><br/>
+            <%= skill.name %><span class="badge"><%= distance_of_time_in_words(skill.start_at, Date.today)%></span>
+            <%= link_to "<span>編集</span>".html_safe, edit_skill_path(skill) if member_auth?(params[:id]) %>
+            <%= link_to "<span>削除</span>".html_safe, skill_path(skill), method: :delete if member_auth?(params[:id]) %>
+            <br/>
         <% end %>
         <%= link_to "<span>スキルを追加する</span>".html_safe, new_skill_path if member_auth?(params[:id]) %>
     </div>
@@ -43,7 +46,9 @@
     <div class="col-sm-8"><div class="content">
       email: <a href="mailto:<%= @member.email %>"><span><%= @member.email %></span></a><br/>
       <% @member.sns_links.each do |sns_link| %>
-          <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a><br/>
+          <%= sns_link.name %>: <a href="<%= sns_link.url %>"><span><%= sns_link.url %></span></a>
+          <%= link_to "<span>編集</span>".html_safe, edit_sns_link_path(sns_link) if member_auth?(params[:id]) %>
+          <%= link_to "<span>削除</span>".html_safe, sns_link_path(sns_link), method: :delete if member_auth?(params[:id]) %><br/>
       <% end %>
       <%= link_to "<span>SNSを追加する</span>".html_safe, new_sns_link_path if member_auth?(params[:id]) %>
     </div></div>

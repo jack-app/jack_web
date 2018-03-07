@@ -8,6 +8,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_param)
     if @member.save
+      login @member
       redirect_to members_path
     else
       render :new

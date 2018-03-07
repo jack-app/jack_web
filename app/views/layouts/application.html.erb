@@ -26,7 +26,7 @@
   <%= yield %>
   <div class="container">
     <hr>
-    <div class="copyright">2016-<%= Date.today.year %> &copy; jack<%= login? ? "login as #{current_member.name} #{link_to "logout", logout_path, method: :delete}".html_safe: "" %></div>
+    <div class="copyright">2016-<%= Date.today.year %> &copy; jack<%= login? ? " logged in as #{current_member.name} #{link_to "logout", logout_path, method: :delete}".html_safe: "" %></div>
     <div><%= debug(params) %></div>
   </div>
   </body>
