@@ -30,23 +30,11 @@
   <p>4月19日(Thu)時点で、新加入メンバーを確定させていただきます。また、新歓に参加される方は、以下の新歓食事会もぜひご一考ください。</p>
 
   <div class="padding"></div>
-  <h3 class="english-shadow" title="welcome party">新歓食事会</h3>
-  <p>
-    新加入メンバーを含めたメンバーのみんなで食事会をしたいと考えています。先輩メンバーとの顔合わせも兼ねて、仲良くなれるイベントです。
-  </p>
-  <p>
-    ※ 食事会の参加は、jackに加入される方のみを対象とさせていただきます。ご了承ください。
-  </p>
-  <table class="table">
-    <tr>
-      <th>日程</th>
-    </tr>
-    <% Event.where(genre: "新歓食事会").order(:start_at).each do |event| %>
-        <tr>
-          <td><%= "#{event.start_at.strftime('%-m月%-d日(%a)')} #{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
-        </tr>
-    <% end %>
-  </table>
+  <h3 class="english-shadow" title="items">持ち物</h3>
+  <h5>名古屋大学の学生証</h5>
+  <p>図書館で新歓を行いますので入館の際に必要となります。もし忘れてしまった場合や学生証がない場合は連絡をください。</p>
+  <h5>パソコン</h5>
+  <p>どちらでも構いませんが、あると便利です。windows、mac、linuxいずれでも大丈夫です。</p>
   <div class="padding"></div>
   <h3 class="english-shadow" title="place">場所</h3>
     <p>
@@ -64,7 +52,7 @@
   <h3 class="english-shadow" title="application">申し込み</h3>
   <p>
     万が一の当日の遅刻や忘れ物に備えて、申し込んだ方と確実に連絡が取れるようにしておきたいです。そのために<strong>申し込みの前に</strong>以下の3つのうちから都合のいい連絡先を選んでください。<br/>
-    当日遅刻や欠席などの連絡は、選んでいただいた3つの方法でお願いします。申し込みフォームでの連絡はご遠慮ください。
+    当日遅刻や欠席などの連絡は、選んでいただいた3つの方法でお願いします。
   </p>
   <h5>1.LINE</h5>
   <p>
