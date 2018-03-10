@@ -2,31 +2,28 @@
 <div class="page-header" title="join to"></div>
 <div class="container">
   <div class="padding"></div>
-  <h2 class="english-shadow" title="member wanted">新歓&メンバー募集</h2>
+  <h2 class="english-shadow" title="member wanted">新歓参加者募集</h2>
   <p>
-    jackは今年も新歓イベントを行います!
+    jackはパソコンを使ってwebサービスやアプリなどを作っているサークルです！<br/>
+    作ってみたいけど全くやり方が分からない人やパソコンを使ったことがない人でも大歓迎！<br/>
+    パソコンを使ったものづくりに興味がある方や、自分のアイデアを形にしてみたいという人はまずは新歓でお待ちしております！<br/>
   </p>
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="contents">新歓内容</h3>
   <p>
-    アプリ・ウェブサービス製作に興味のある方、デザインをやってみたい方、イラストを製作してみたい方、何か企画を立ててみたい方、学年・学部は問いません。<br/>
-    プログラミングって、なんだか難しそう。心配ありません、jackメンバーのほとんどが初心者でした。<br/>
-    大切なのは、やってみたい気持ちです。ぜひご参加ください!
+    新歓では単純なゲームがより面白くなるアイデアをみんなで考えてそれを実際に作ります！<br/>
+    jackのメンバーがいつもやっている「自分たちのアイデアを形にする」という体験を一緒にしませんか？<br/>
+    自分たちが考えたアイデアが実際に動いている感動を一緒に感じましょう！<br/>
   </p>
-  <div class="row">
-    <div class="col-md-4 offset-md-2"><%= link_to "jackとは", about_path, class:'button' %></div>
-    <div class="col-md-4"><%= link_to "新歓登録フォームはこちら", contact_path, class:'button' %></div>
-  </div>
   <div class="padding"></div>
   <h3 class="english-shadow" title="date&time">新歓日程</h3>
-  <p>※ 15分前集合でお願いします</p>
-  <table class="table table-striped">
+  <table class="table">
     <tr>
-      <th>日付</th>
-      <th>時間</th>
+      <th>日程</th>
     </tr>
     <% Event.where(genre: "新歓").order(:start_at).each do |event| %>
         <tr>
-          <td><%= event.start_at.strftime('%-m月%-d日(%a)') %></td>
-          <td><%= "#{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
+          <td><%= "#{event.start_at.strftime('%-m月%-d日(%a)')} #{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
         </tr>
     <% end %>
   </table>
@@ -35,50 +32,58 @@
   <div class="padding"></div>
   <h3 class="english-shadow" title="welcome party">新歓食事会</h3>
   <p>
-    新加入メンバーを含めたメンバーのみんなで食事会をしたいと考えています。jack新歓に来ていただける方は、是非ご参加ください。<br/>
-    先輩メンバーとの顔合わせも兼ねて、仲良くなれるイベントです。
+    新加入メンバーを含めたメンバーのみんなで食事会をしたいと考えています。先輩メンバーとの顔合わせも兼ねて、仲良くなれるイベントです。
   </p>
   <p>
     ※ 食事会の参加は、jackに加入される方のみを対象とさせていただきます。ご了承ください。
   </p>
-  <table class="table table-striped">
+  <table class="table">
     <tr>
-      <th>日付</th>
-      <th>時間</th>
+      <th>日程</th>
     </tr>
     <% Event.where(genre: "新歓食事会").order(:start_at).each do |event| %>
         <tr>
-          <td><%= event.start_at.strftime('%-m月%-d日(%a)') %></td>
-          <td><%= "#{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
+          <td><%= "#{event.start_at.strftime('%-m月%-d日(%a)')} #{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
         </tr>
     <% end %>
   </table>
   <div class="padding"></div>
-  <h3 class="english-shadow" title="place">集合場所</h3>
+  <h3 class="english-shadow" title="place">場所</h3>
     <p>
-      地下鉄名城線 名古屋大学駅1番出口
+      新歓は名古屋大学中央図書館のラーニングポッドAで行います。<br/>
+      会場がわからない方は<strong>地下鉄名城線 名古屋大学駅1番出口</strong>に新歓の開始時間の<strong>15分前</strong>に集合していただければjackメンバーが案内します！
     </p>
   <div class="padding"></div>
-  <h3 class="english-shadow" title="items">持ち物</h3>
-  <h5>名古屋大学学生証</h5>
-  <p>
-    中央図書館で新歓イベントを行いますので、入館の際に提示が必要です。無くても書類に記入していただければ問題ありません。
-  </p>
-  <p>
-    パソコンはどちらでも構いません。Windows・Mac・Linuxいずれのパソコンでもjackで活動いただけます。
-  </p>
-    <div class="padding"></div>
-  <h3 class="english-shadow" title="contents">内容</h3>
-  <h5>★いい感じにjack新歓のインパクトを出す文章★</h5>
-  <p>
-    ★未定★ここでいい感じにjack新歓に参加したくなるような文章★未定★
-  </p>
-  <div class="padding"></div>
-
   <h3 class="english-shadow" title="remarks">注意事項</h3>
-  <ul>
-    <li>当日参加OKですが、出来れば事前に<%= link_to "<span>登録フォーム</span>".html_safe, contact_path %>・<a href="mailto:jack.nagoya&#64;gmail.com"><span>メール</span></a>・<a href="https://twitter.com/jackapp_tmy"><span>Twitter</span></a>・<a href="http://line.me/ti/p/%40jnm6180c"><span>Line@</span></a>のいずれかで、お名前、学部学科、参加日をご連絡ください。
-    <li>当日は活動開始時刻の15分前に「jack」のプラカードを持った人が集合場所にいますので、お声かけください。
-  </ul>
+  <h5>jackへの加入について</h5>
+  <p>
+    「新歓に参加したからjackに入らなくてはいけない」ということはありません。
+    今年度にjackに加入する新入生の顔合わせは別日にありますので、新歓にはお気軽に参加ください。
+    また、入るかもしれない方は4/19日(木)に顔合わせを行いますので、予定を空けておいていただけると幸いです。</p>
+  <div class="padding"></div>
+  <h3 class="english-shadow" title="application">申し込み</h3>
+  <p>
+    万が一の当日の遅刻や忘れ物に備えて、申し込んだ方と確実に連絡が取れるようにしておきたいです。そのために<strong>申し込みの前に</strong>以下の3つのうちから都合のいい連絡先を選んでください。<br/>
+    当日遅刻や欠席などの連絡は、選んでいただいた3つの方法でお願いします。申し込みフォームでの連絡はご遠慮ください。
+  </p>
+  <h5>1.LINE</h5>
+  <p>
+    jackのLINEアカウントを友達登録してください。<br/>
+    こちらのリンクから登録できます。<a href="line://ti/p/@jnm6180c" target="_blank"><span>line://ti/p/@jnm6180c</span></a>
+  </p>
+  <h5>2.twitter</h5>
+  <p>
+    jackのTwitterアカウントをフォローしてください。<br/>
+    jackのtwitterのアカウントはこちらです。<a href="https://twitter.com/jackapp_tmy" target="_blank"><span>https://twitter.com/jackapp_tmy</span></a>
+  </p>
+  <h5>3.メール</h5>
+  <p>
+    特に事前に行うことはありません。<br/>
+    申し込みフォームにお進みください。
+  </p>
+  <p>上記の3つから連絡先を選んでいただけましたら、こちらから申し込みをお願いいたします。</p>
+  <div class="row">
+    <div class="col-md-4 offset-md-4"><%= link_to "申し込みフォーム", "https://docs.google.com/forms/d/e/1FAIpQLSdAQW-QAhpMkn6MKUx2ct87RLZkdswx-RrkcWpXS70myrgiCQ/viewform", class:'button', target: '_blank' %></div>
+  </div>
   <div class="hr-padding"></div>
 </div>
