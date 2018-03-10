@@ -21,16 +21,23 @@
             <div class="genre">
               <table class="table table-sm">
                 <tr>
-                  <td>ジャンル:</td>
+                  <th>ジャンル:</th>
                   <td><%= product.genre %></td>
                 </tr>
                 <tr>
-                  <td>価格:</td>
+                  <th>価格:</th>
                   <td><%= product.price %>円</td>
                 </tr>
                 <tr>
-                  <td>対応OS:</td>
-                  <td>android, iOS</td>
+                  <th>メンバー:</th>
+                  <td>
+                    <ul>
+                      <% product.member_products.each do |member_product| member = member_product.member %>
+                        <li><%= link_to "<span>#{member.name}</span>".html_safe, member %><%= link_to "<span>編集</span>".html_safe, edit_member_product_path(member_product.id) if login? %><%= link_to "<span>削除</span>".html_safe, member_product_path(member_product.id), method: :delete if login? %></li>
+                      <% end %>
+                    </ul>
+                    <%= link_to "<span>追加</span>".html_safe, new_member_product_path(product_id: product.id) if login? %>
+                  </td>
                 </tr>
               </table>
             </div>
@@ -51,7 +58,7 @@
               </div>
           <% end %>
           <% if login? %>
-              <div class="col-sm-6"><%= link_to "リンク追加", new_product_link_path, class:'button' %></div>
+              <div class="col-sm-6"><%= link_to "リンク追加", new_product_link_path(product_id: product.id), class:'button' %></div>
           <% end %>
         </div>
         <div class="row">
@@ -70,10 +77,7 @@
         </div>
       </div>
       <% if login? %>
-          <div class="row">
-            <div class="col-sm-6"><%= link_to "#{product.name}を編集する", edit_product_path(product.id), class:'button' %></div>
-            <div class="col-sm-6"><%= link_to "共同制作者を追加", "#", class:'button' %></div>
-          </div>
+            <div><%= link_to "#{product.name}を編集する", edit_product_path(product.id), class:'button' %></div>
       <% end %>
       <div class="hr-padding"></div>
   <% end %>
