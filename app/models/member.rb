@@ -23,6 +23,8 @@ class Member < ApplicationRecord
         break;
       end
     }
+    grade -= self.repeat
+    if grade < 1 then grade = 1 end
     "#{(grade)}年"
   end
 end

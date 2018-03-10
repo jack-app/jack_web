@@ -35,7 +35,7 @@ class MembersController < ApplicationController
       @member = Member.find(params[:id])
     end
   def member_param
-    params.require(:member).permit(:name, :email, :university, :password, :password_confirmation, :enroll, :profile)
+    params.require(:member).permit(:name, :email, :university, :password, :password_confirmation, :enroll, :profile, :repeat)
   end
   def require_auth
     until (login? && current_member.id.to_i == params[:id].to_i)

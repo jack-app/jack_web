@@ -1,0 +1,46 @@
+<%= form_for @member do |f| %>
+    <div class="form-group">
+      <label>メンバー名</label>
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>メールアドレス</label>
+      <%= f.email_field :email, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>所属大学・学部・学科または所属大学院・研究科</label>
+      <%= f.text_field :university, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>ログインパスワード</label>
+      <%= f.password_field :password, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>ログインパスワード再確認</label>
+      <%= f.password_field :password_confirmation, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>入学年月日(日付は 4月1日に設定してください。)</label><br/>
+      <%= f.date_select :enroll, class:'form-control' %>
+    </div>
+
+
+    <div class="form-group">
+      <label>留年数</label><br/>
+      <%= f.number_field :repeat, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label>プロフィール</label>
+      <%= f.text_area :profile, class:'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit %>
+    </div>
+<% end %>
