@@ -33,7 +33,7 @@
                   <td>
                     <ul>
                       <% product.member_products.each do |member_product| member = member_product.member %>
-                        <li><%= link_to "<span>#{member.name}</span>".html_safe, member %><%= link_to "<span>編集</span>".html_safe, edit_member_product_path(member_product.id) if login? %><%= link_to "<span>削除</span>".html_safe, member_product_path(member_product.id), method: :delete if login? %></li>
+                        <li><%= link_to "<span>#{member.name}</span>".html_safe, member %><%= link_to "<span>削除</span>".html_safe, member_product_path(member_product.id), method: :delete if login? %></li>
                       <% end %>
                     </ul>
                     <%= link_to "<span>追加</span>".html_safe, new_member_product_path(product_id: product.id) if login? %>
