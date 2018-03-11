@@ -5,6 +5,7 @@ class Member < ApplicationRecord
   has_many :sns_links, dependent: :destroy
   has_many :member_products, dependent: :destroy
   has_many :products, through: :member_products
+  has_many :entries
   has_secure_password
   validates :name, presence: true
   validates :email, presence: true, length: { maximum: 255 },

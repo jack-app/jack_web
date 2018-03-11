@@ -1,0 +1,17 @@
+<% provide(:page_title, "#{@entry.name} | ブログ") %>
+<div class="page-header" title="<%= @entry.name %>"></div>
+<div class="container">
+  <div class="padding"></div>
+  <p align="right">
+    <%= @entry.updated_at %> <%= "#{@author.name} #{gravatar_for @author, size: 32}".html_safe %>
+  </p>
+  <p>
+    <%= simple_format(@entry.body) %>
+  </p>
+  <% if login? %>
+      <div class="row">
+        <div class="col-sm-6"><%= link_to '記事を編集する', edit_entry_path(@entry), class: 'button' %></div>
+        <div class="col-sm-6"><%= link_to '記事を削除する', @entry, method: :delete, class: 'button', data: { confirm: '消したら復元できません。よろしいですか？' } %></div>
+      </div>
+  <% end %>
+</div>

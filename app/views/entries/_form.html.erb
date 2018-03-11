@@ -1,0 +1,27 @@
+<%= form_with(model: entry, local: true) do |form| %>
+  <% if entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+      <ul>
+      <% entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <lable>タイトル</lable>
+    <%= form.text_field :name, id: :entry_name, class:'form-control' %>
+  </div>
+
+  <div class="field">
+    <lable>本文(htmlが使えます)</lable>
+    <%= form.text_area :body, id: :entry_body, class:'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
