@@ -25,4 +25,10 @@ module SessionsHelper
       redirect_to root_path and return
     end
   end
+  def require_auth
+    until member_auth?(params[:id])
+      redirect_to root_path and return
+    end
+  end
+
 end

@@ -1,2 +1,25 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<% provide(:page_title, "") %>
+<div class="page-header" title="contact"></div>
+<div class="container">
+  <div class="padding"></div>
+  <h2 class="english-shadow" title="contact">ご連絡</h2>
+  <p>何かご不明な点や、質問したいことがございましたら、次の連絡先からお気軽に連絡ください。</p>
+  <table class="table table-2col">
+    <tr>
+      <th>フォーム</th>
+      <td><%= link_to "<span>Google Form</span>".html_safe, "https://docs.google.com/forms/d/e/1FAIpQLSdkvLbyvnp6rSOxCweb_tW3CPCF8rG-s6yJ8hV6QmHVp9mNxA/viewform?embedded=true", target: '_blank' %></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= link_to "<span>jackapp.tmy@gmail.com</span>".html_safe, "mailto:jackapp.tmy@gmail.com" %></td>
+    </tr>
+    <tr>
+      <th>twitter</th>
+      <td><a href="https://twitter.com/jackapp_tmy" target="_blank"><span>https://twitter.com/jackapp_tmy</span></a></td>
+    </tr>
+    <tr>
+      <th>LINE@</th>
+      <td><a href="line://ti/p/@jnm6180c" target="_blank"><span>line://ti/p/@jnm6180c</span></a></td>
+    </tr>
+  </table>
+</div>

@@ -37,9 +37,4 @@ class MembersController < ApplicationController
   def member_param
     params.require(:member).permit(:name, :email, :university, :password, :password_confirmation, :enroll, :profile, :repeat)
   end
-  def require_auth
-    until (login? && current_member.id.to_i == params[:id].to_i)
-      redirect_to member_path(params[:id]) and return
-    end
-  end
 end
