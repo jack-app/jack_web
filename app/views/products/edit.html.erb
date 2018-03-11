@@ -2,45 +2,6 @@
 <div class="page-header" title="edit product"></div>
 <div class="container">
   <div class="padding"></div>
-  <%= form_for @product do |f| %>
-      <div class="form-group">
-        <label>作品名</label>
-        <%= f.text_field :name, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>ジャンル</label>
-        <%= f.text_field :genre, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>価格(円)</label>
-        <%= f.number_field :price, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>開発開始日</label><br/>
-        <%= f.date_select :start_at, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>開発終了日</label><br/>
-        <%= f.date_select :end_at, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>キャッチコピー</label>
-        <%= f.text_field :slogan, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <label>詳細</label>
-        <%= f.text_area :describe, class:'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit %>
-      </div>
-  <% end %>
+  <%= render 'form' %>
   <div class="padding"></div>
 </div>

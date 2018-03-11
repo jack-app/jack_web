@@ -40,6 +40,9 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
     def product_param
-      params.require(:product).permit(:name, :genre, :price, :start_at, :end_at, :slogan, :describe)
+      p = params.require(:product).permit(:name, :genre, :price, :start_at, :end_at, :slogan, :describe, :icon_url, :movie_url)
+      md = p[:movie_url].match(/https:\/\/youtu.be\/(.+)/)
+      if !md.nil? then p[:movie_url] = "https://www.youtube.com/embed/#{md[1]}" end
+      p
     end
 end

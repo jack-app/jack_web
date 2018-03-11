@@ -6,7 +6,7 @@
       <div class="product">
         <div class="row">
           <div class="col-4">
-            <%= image_tag "break_gear/logo.png", class: "logo" %>
+            <%= image_tag product.icon_url, class: "logo" if !product.icon_url.nil? %>
             <div class="big-page">
               <% product.product_links.each do |link| %>
                   <a href="<%= link.url %>" class="button"><%= link.name %></a>
@@ -21,15 +21,15 @@
             <div class="genre">
               <table class="table table-sm">
                 <tr>
-                  <th>ジャンル:</th>
+                  <th>ジャンル</th>
                   <td><%= product.genre %></td>
                 </tr>
                 <tr>
-                  <th>価格:</th>
+                  <th>価格</th>
                   <td><%= product.price %>円</td>
                 </tr>
                 <tr>
-                  <th>メンバー:</th>
+                  <th>メンバー</th>
                   <td>
                     <ul>
                       <% product.member_products.each do |member_product| member = member_product.member %>
@@ -62,9 +62,11 @@
           <% end %>
         </div>
         <div class="row">
-          <div class="col-sm-6 col-12">
-            <div class="movie-wrapper"><iframe class="movie" src="https://www.youtube.com/embed/VmNxGXyjVOo" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
-          </div>
+          <% if !product.movie_url.nil? and !product.movie_url.blank? %>
+              <div class="col-sm-6 col-12">
+                <div class="movie-wrapper"><iframe class="movie" src="<%= product.movie_url %>" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+              </div>
+          <% end %>
           <div class="col-sm-2 col-4">
             <%= image_tag "break_gear/screen-shot1.jpg", class: "screen-shot" %>
           </div>
