@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <lable>本文(htmlが使えます)</lable>
-    <%= form.text_area :body, id: :entry_body, class:'form-control' %>
+    <lable>本文(htmlが使えます)(改行は自動的に&ltbr&gtタグに変換されます)</lable>
+    <%= form.text_area :body, id: :entry_body, rows: '20', class:'form-control' %>
   </div>
 
   <div class="actions">

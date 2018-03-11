@@ -1,9 +1,8 @@
 <% provide(:page_title, "#{@entry.name} | ブログ") %>
 <div class="page-header" title="<%= @entry.name %>"></div>
 <div class="container">
-  <div class="padding"></div>
   <p align="right">
-    <%= @entry.updated_at %> <%= "#{@author.name} #{gravatar_for @author, size: 32}".html_safe %>
+    <%= @entry.updated_at.strftime('%Y年%m月%d日')%> <%= link_to "<span style='padding: 0 1em'>#{@author.name}</span>#{gravatar_for @author, size: 32}".html_safe, member_path(@author.id) %>
   </p>
   <p>
     <%= simple_format(@entry.body) %>

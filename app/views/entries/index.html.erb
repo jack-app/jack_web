@@ -5,7 +5,7 @@
   <%= link_to '新しい記事を投稿する', new_entry_path, class: 'button' if login? %>
   <% @entries.each do |entry| author = Member.find_by(id: entry.member_id) %>
       <h3 class="english-shadow"><%= link_to "<span>#{entry.name}</span>".html_safe, entry %></h3>
-      <p align="right"><%= entry.updated_at %> <%= "#{author.name} #{gravatar_for author, size: 32}".html_safe %></p>
+      <p align="right"><%= entry.updated_at.strftime('%Y年%m月%d日')%> <%= link_to "<span style='padding: 0 1em'>#{author.name}</span>#{gravatar_for author, size: 32}".html_safe, member_path(author.id) %></p>
       <p><%= simple_format(entry.body.truncate(100)) %><%= link_to "<span>続きはこちら</span>".html_safe, entry %></p>
       <% if login? %>
       <div class="row">
