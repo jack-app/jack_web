@@ -26,6 +26,13 @@ class Member < ApplicationRecord
     }
     grade -= self.repeat
     if grade < 1 then grade = 1 end
-    "#{(grade)}年"
+    if  (grade > 2 && university.match(/大学院/)) ||
+        (grade > 4 && university.match(/大学/) && !university.match(/医学科/)) ||
+        (grade > 6 && university.match(/大学/) && university.match(/医学科/)) ||
+        (grade > 2 && university.match(/短期大学/))
+      "卒業"
+    else
+      "#{(grade)}年"
+    end
   end
 end
