@@ -2,16 +2,24 @@
 <div class="page-header" title="events/results"></div>
 <div class="container">
   <div class="padding"></div>
+  <h3 class="english-shadow" title="events">イベント</h3>
+  <p>新歓は、<%= link_to "<span>新歓&メンバー募集</span>".html_safe, welcome_path %>で取り扱っています。</p>
+  <%= link_to "イベントを追加する", new_event_path, class: "button" if login? %>
   <table class="table">
-    <tr>
-      <th>日時</th>
-      <th>イベント</th>
-    </tr>
-    <% @events.each do |event| %>
+    <% @events.order("start_at DESC").each do |event| %>
         <tr>
-          <td><%= event.start_at.strftime('%-m月%-d日(%a)') %></td>
-          <td><%= event.name %></td>
+          <td><%= event.start_at.strftime('%Y年%-m月%-d日') %></td>
+          <td>
+            <%= event.name %>
+            <%= link_to "<span>編集</span>".html_safe, edit_event_path(event) if login? %>
+            <%= link_to "<span>削除</span>".html_safe, event, method: :delete if login? %>
+          </td>
         </tr>
+        <% if !event.describe.nil? && !event.describe.blank? %>
+          <tr>
+            <td colspan="2"><%= event.describe %></td>
+          </tr>
+        <% end %>
     <% end %>
   </table>
   <div class="padding"></div>

@@ -1,0 +1,35 @@
+<%= form_for(@event) do |f| %>
+    <div class="field">
+      <lable>タイトル</lable>
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <lable>ジャンル</lable>
+      <%= f.text_field :genre, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <lable>場所</lable>
+      <%= f.text_field :place, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <lable>詳細</lable>
+      <%= f.text_area :describe, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <lable>開始日時</lable><br/>
+      <%= f.datetime_select :start_at, class:'form-control' %>
+    </div>
+
+    <div class="field">
+      <lable>終了日時</lable><br/>
+      <%= f.datetime_select :end_at, class:'form-control' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
