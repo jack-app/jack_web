@@ -6,7 +6,7 @@
       <div class="product">
         <div class="row">
           <div class="col-4">
-            <%= image_tag product.icon_url, class: "logo" if !product.icon_url.nil? %>
+            <%= image_tag product.icon_url, class: "logo" if !product.icon_url.nil? && !product.icon_url.blank? %>
             <div class="big-page">
               <% product.product_links.each do |link| %>
                   <a href="<%= link.url %>" class="button"><%= link.name %></a>
@@ -79,7 +79,10 @@
         </div>
       </div>
       <% if login? %>
-            <div><%= link_to "#{product.name}を編集する", edit_product_path(product.id), class:'button' %></div>
+          <div class="row">
+            <div class="col-6"><%= link_to "#{product.name}を編集する", edit_product_path(product.id), class:'button' %></div>
+            <div class="col-6"><%= link_to "#{product.name}を削除する", product_path(product.id),method: :delete, class:'button' %></div>
+          </div>
       <% end %>
       <div class="hr-padding"></div>
   <% end %>
