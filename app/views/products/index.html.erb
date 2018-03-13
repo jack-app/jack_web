@@ -67,15 +67,14 @@
                 <div class="movie-wrapper"><iframe class="movie" src="<%= product.movie_url %>" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
               </div>
           <% end %>
-          <div class="col-sm-2 col-4">
-            <%= image_tag "break_gear/screen-shot1.jpg", class: "screen-shot" %>
-          </div>
-          <div class="col-sm-2 col-4">
-            <%= image_tag "break_gear/screen-shot2.jpg", class: "screen-shot" %>
-          </div>
-          <div class="col-sm-2 col-4">
-            <%= image_tag "break_gear/screen-shot3.jpg", class: "screen-shot" %>
-          </div>
+
+          <% if product.screenshots %>
+              <% product.screenshots.each do |screenshot| %>
+                  <div class="col-sm-2 col-4">
+                    <%= image_tag screenshot[:url], class: "screen-shot" %>
+                  </div>
+              <% end %>
+        <% end %>
         </div>
       </div>
       <% if login? %>
