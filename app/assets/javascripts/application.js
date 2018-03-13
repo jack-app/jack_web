@@ -16,3 +16,17 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(function() {
+    $(window).scroll(function () {
+        if (($(window).scrollTop() > 0)&&($(window).width() <= 768)) {
+            $('.header').css({"top": "-75px"});
+            $('.header ul').css({"opacity": "0"});
+
+        } else {
+            $('.header').css({"top": "-0px"});
+            $('.header ul').css({"opacity": "1"});
+        }
+    });
+});
