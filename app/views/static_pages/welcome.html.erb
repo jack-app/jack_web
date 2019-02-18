@@ -21,13 +21,21 @@
     <tr>
       <th>日程</th>
     </tr>
-    <% Event.where(genre: "新歓").order(:start_at).each do |event| %>
-        <tr>
-          <td><%= "#{event.start_at.strftime('%-m月%-d日(%a)')} #{event.start_at.strftime('%-H:%M')}～#{event.end_at.strftime('%-H:%M')}" %></td>
-        </tr>
-    <% end %>
+    <tr>
+      <td>4月５日(金)  14:30 ~ 16:00</td>
+    </tr>
+    <tr>
+      <td>4月10日(水)  13:30 ~ 15:00</td>
+    </tr>
+    <tr>
+      <td>4月13日(日)  14:30 ~ 16:00</td>
+    </tr>
+    <tr>
+      <td>4月15日(月)  17:00 ~ 18:30</td>
+    </tr>
+
   </table>
-  <p>4月19日(Thu)時点で、新加入メンバーを確定させていただきます。</p>
+  <p>4月18日(木)時点で、新加入メンバーを確定させていただきます。</p>
 
   <div class="padding"></div>
   <h3 class="english-shadow" title="items">持ち物</h3>
@@ -57,7 +65,7 @@
   <h5>1.LINE</h5>
   <p>
     jackのLINEアカウントを友達登録してください。<br/>
-    こちらのリンクから登録できます。<a href="line://ti/p/@jnm6180c" target="_blank"><span>line://ti/p/@jnm6180c</span></a><br/>
+    こちらのリンクから登録できます。<a href="line://ti/p/@dsf0878s" target="_blank"><span>line://ti/p/@dsf0878s</span></a><br/>
     当日の連絡は、トークからお願いします。
   </p>
   <h5>2.twitter</h5>
@@ -73,7 +81,7 @@
   </p>
   <p>上記の3つから連絡先を選んでいただけましたら、こちらから申し込みをお願いいたします。</p>
   <div class="row">
-    <div class="col-md-4 offset-md-4"><%= link_to "申し込みフォーム", "https://docs.google.com/forms/d/e/1FAIpQLSdAQW-QAhpMkn6MKUx2ct87RLZkdswx-RrkcWpXS70myrgiCQ/viewform", class:'button', target: '_blank' %></div>
+    <div class="col-md-4 offset-md-4"><%= link_to "申し込みフォーム", "https://docs.google.com/forms/d/e/1FAIpQLScToE8mhZz3nEP2jQdANYVZeLuXOiO9dvdSVQyAL5h_UeHsRg/viewform?usp=sf_link", class:'button', target: '_blank' %></div>
   </div>
   <div class="hr-padding"></div>
 </div>
